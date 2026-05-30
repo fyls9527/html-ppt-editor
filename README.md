@@ -1,8 +1,8 @@
 # Html-PPT-Editor
 
-**中文** — 一款面向 AI 时代的 HTML 演示文稿桌面编辑器 —— 所见即所得编辑、完全离线安全运行、一键分享即开即看。
+**中文** — 像编辑PPTX一样，编辑HTML。 一款面向 AI 时代的 HTML 演示文稿桌面编辑器 —— 所见即所得编辑、完全离线安全运行、一键分享即开即看。
 
-**English** — A desktop HTML presentation editor for the AI era. WYSIWYG editing, fully offline security, one-click sharing — just open and view.
+**English** — Edit HTML like editing PPTX. A desktop HTML presentation editor for the AI era. WYSIWYG editing, fully offline security, one-click sharing — just open and view.
 
 ***
 
