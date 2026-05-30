@@ -8,11 +8,11 @@
 
 ## 软件简介 / Overview
 
-**中文** — Html-PPT-Editor 专为使用 AI 工具生成 HTML 演示文稿的用户打造。基于 Tauri v2 架构（Rust 后端 + WebView2 前端），赋予你修正、美化、增强 AI 生成内容的能力，让每一份演示都专业、安全、流畅。
+**中文** — Html-PPT-Editor 专为使用 AI 工具生成 HTML 演示文稿的用户打造。基于 Rust+ WebView2，赋予你修正、美化、增强 AI 生成内容的能力，让每一份演示都专业、安全、流畅。
 
 > **核心定位**：AI 生成 HTML 演示文稿的最佳编辑伙伴
 
-**English** — Built for users who generate HTML presentations with AI tools. Powered by Tauri v2 (Rust backend + WebView2 frontend), it lets you fix, polish, and enhance AI-generated content — making every presentation professional, secure, and smooth.
+**English** — Built for users who generate HTML presentations with AI tools. Powered by Rust + WebView2, it lets you fix, polish, and enhance AI-generated content — making every presentation professional, secure, and smooth.
 
 > **Core Positioning**: The best editing companion for AI-generated HTML presentations
 
