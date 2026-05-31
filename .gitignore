@@ -18,3 +18,7 @@ node_modules/
 # Environment
 .env
 .env.local
+
+# 历史版本
+2.0.1/
+分享链接.txt
