@@ -1,141 +1,96 @@
 # Html-PPT-Editor
 
-**中文** — 像编辑PPTX一样，编辑HTML。 一款面向 AI 时代的 HTML 演示文稿桌面编辑器 —— 所见即所得编辑、完全离线安全运行、一键分享即开即看。
+> **Version**: v2.0.3 (2026-06-05)
+> **Platforms**: Windows 10/11 · macOS 12.0+ · Linux
+> **Last updated**: 2026-06-05
 
-**English** — Edit HTML like editing PPTX. A desktop HTML presentation editor for the AI era. WYSIWYG editing, fully offline security, one-click sharing — just open and view.
+[中文文档 (README.zh-CN.md)](./README.zh-CN.md)
+
+**Edit HTML like editing PPTX.** A desktop HTML presentation editor for the AI era. WYSIWYG editing, fully offline security, one-click sharing — just open and view.
 
 ***
 
-## 软件简介 / Overview
+## Overview
 
-**中文** — Html-PPT-Editor 专为使用 AI 工具生成 HTML 演示文稿的用户打造。基于 Rust+ WebView2，赋予你修正、美化、增强 AI 生成内容的能力，让每一份演示都专业、安全、流畅。
-
-> **核心定位**：AI 生成 HTML 演示文稿的最佳编辑伙伴
-
-**English** — Built for users who generate HTML presentations with AI tools. Powered by Rust + WebView2, it lets you fix, polish, and enhance AI-generated content — making every presentation professional, secure, and smooth.
+Built for users who generate HTML presentations with AI tools. Powered by Rust + WebView2, it lets you fix, polish, and enhance AI-generated content — making every presentation professional, secure, and smooth.
 
 > **Core Positioning**: The best editing companion for AI-generated HTML presentations
 
 ***
 
-## 功能特性 / Features
-### 核心功能兼容矩阵
+## Features
 
-| 功能          | Reveal.js | Marp | Slidev | Generic HTML |
-| ----------- | :-------: | :--: | :----: | :----------: |
-| **幻灯片计数**   |     ✅     |   ✅  |   ⚠️   |       ✅      |
-| **幻灯片导航**   |     ⚠️    |   ✅  |   ⚠️   |       ✅      |
-| **全屏演示**    |     ⚠️    |   ✅  |   ⚠️   |       ✅      |
-| **演示模式**    |     ⚠️    |   ✅  |   ⚠️   |       ✅      |
-| **PDF 导出**  |     ⚠️    |   ✅  |   ⚠️   |       ✅      |
-| **HTML 导出** |     ⚠️    |   ✅  |   ⚠️   |       ✅      |
-| **文字编辑**    |     ✅     |   ✅  |    ✅   |       ✅      |
-| **样式设置**    |     ✅     |   ✅  |    ✅   |       ✅      |
-| **图片编辑**    |     ✅     |   ✅  |    ✅   |       ✅      |
-| **视频编辑**    |     ✅     |   ✅  |    ✅   |       ✅      |
-| **URL 嵌入**  |     ✅     |   ✅  |    ✅   |       ✅      |
-| **动画效果**    |     ❌     |  N/A |    ❌   |      ⚠️      |
-| **框架特有功能**  |     ❌     |  ⚠️  |    ❌   |      N/A     |
-| **纵向幻灯片**   |     ❌     |  N/A |   N/A  |      N/A     |
-| **交互功能**    |     ❌     |  N/A |    ❌   |      N/A     |
-| **页眉页脚管理**  |     ⚠️    |   ✅  |   ⚠️   |       ✅      |
-| **运行时干扰**   |     ⚠️    |  ✅ 无 |    ❌   |      ✅ 无     |
+### Compatibility Matrix
 
-### ✏️ 可视化编辑 / Visual Editing
+| Feature                | Reveal.js | Marp   | Slidev | Generic HTML |
+| ---------------------- | :-------: | :----: | :----: | :----------: |
+| **Slide Counting**     |     ⚠️    |   ✅    |   ⚠️    |       ✅      |
+| **Slide Navigation**   |     ⚠️    |   ✅    |   ⚠️    |       ✅      |
+| **Fullscreen**         |     ⚠️    |   ✅    |   ⚠️    |       ✅      |
+| **Presentation Mode**  |     ⚠️    |   ✅    |   ⚠️    |       ✅      |
+| **PDF Export**         |     ⚠️    |   ✅    |   ⚠️    |       ✅      |
+| **HTML Export**        |     ⚠️    |   ✅    |   ⚠️    |       ✅      |
+| **Text Editing**       |     ✅     |   ✅    |   ✅    |       ✅      |
+| **Style Settings**     |     ✅     |   ✅    |   ✅    |       ✅      |
+| **Image Editing**      |     ✅     |   ✅    |   ✅    |       ✅      |
+| **Video Editing**      |     ✅     |   ✅    |   ✅    |       ✅      |
+| **URL Embedding**      |     ✅     |   ✅    |   ✅    |       ✅      |
+| **Animations**         |     ❌     |  N/A   |   ❌    |      ⚠️      |
+| **Framework-specific** |     ❌     |   ⚠️    |   ❌    |      N/A     |
+| **Portrait Slides**    |     ❌     |  N/A   |  N/A   |      N/A     |
+| **Interactivity**      |     ❌     |  N/A   |   ❌    |      N/A     |
+| **Header/Footer Mgmt** |     ⚠️    |   ✅    |   ⚠️    |       ✅      |
+| **Runtime Friction**   |     ⚠️    | ✅ None |   ❌    |   ✅ None    |
 
-**中文** — 所见即所得的编辑体验，无需手写代码。选中文字即可调整样式（加粗、斜体、下划线、删除线）、切换标题级别（H1/H2/H3）、调整对齐方式。支持直接插入图片、视频、在线视频和超链接。
+### ✏️ Visual Editing
 
-> ⚠️ **操作提示**：打开 HTML 文件后，需点击侧边栏的\*\*"编辑"按钮\*\*，方可激活编辑模式并显示工具栏。再次点击可退出编辑模式，预览区恢复只读状态。
-
-**English** — A true WYSIWYG experience with no coding required. Select text to adjust styles (bold, italic, underline, strikethrough), switch heading levels (H1/H2/H3), and change alignment. Insert images, local videos, online videos, and hyperlinks directly.
+A true WYSIWYG experience with no coding required. Select text to adjust styles (bold, italic, underline, strikethrough), switch heading levels (H1/H2/H3), and change alignment. Insert images, local videos, online videos, and hyperlinks directly.
 
 > ⚠️ **Note**: After opening an HTML file, click the **"Edit" button** in the sidebar to activate editing mode and show the toolbar. Click it again to exit editing mode and return to read-only preview.
 
-### 📄 源码编辑 / Source Code Editing
+### 📄 Source Code Editing
 
-**中文** — 420px 宽的代码编辑面板，等宽字体排版，修改后预览区实时更新。满足技术用户对每一行代码的精细控制需求。
+A 420px code editing panel with monospace font and real-time preview updates. Gives technical users fine-grained control over every line of code.
 
-**English** — A 420px code editing panel with monospace font and real-time preview updates. Gives technical users fine-grained control over every line of code.
+### 🔍 Preview & Zoom
 
-### 🔍 预览与缩放 / Preview & Zoom
+Smooth CSS transform-based zoom (25% — 300%, ±10% per step). One-click 1:1 reset. Does not interfere with editing.
 
-**中文** — CSS transform 实现流畅缩放（25% — 300%，每次 ±10%），一键 1:1 复位，不影响编辑操作。
+### 📊 Slide Navigation
 
-**English** — Smooth CSS transform-based zoom (25% — 300%, ±10% per step). One-click 1:1 reset. Does not interfere with editing.
+Automatically detects slide markers in your HTML. Supports **8 marker types**: `.slide`, `.slide-page`, `.page`, `<section>`, `<article>`, `data-slide`, `data-page`, `hr.separator`. The top bar shows your current position in real time. Free edition supports up to 20 slides per day.
 
-### 📊 幻灯片导航 / Slide Navigation
+### 🎬 Fullscreen Presentation
 
-**中文** — 自动识别 HTML 中的幻灯片标记，支持 7 种标记方式（`.slide`、`.slide-page`、`.page`、`section`、`article`、`data-slide`、`data-page`），顶栏实时显示当前位置。
+An immersive presentation mode that hides all UI. Pure black background with floating controls. Keyboard navigation (← → ↑ ↓ Space Home End) and smooth CSS animations throughout. Sidebar state restores automatically on exit.
 
-**English** — Automatically detects slide markers in your HTML. Supports 7 marker types: `.slide`, `.slide-page`, `.page`, `section`, `article`, `data-slide`, `data-page`. The top bar shows your current position in real time.
-
-### 🎬 全屏演示模式 / Fullscreen Presentation
-
-**中文** — 隐藏所有 UI 的沉浸式演示体验，纯黑背景 + 浮动控制条，支持键盘导航（← → ↑ ↓ Space Home End），所有 CSS 动效流畅呈现。退出后自动恢复侧边栏状态。
-
-**English** — An immersive presentation mode that hides all UI. Pure black background with floating controls. Keyboard navigation (← → ↑ ↓ Space Home End) and smooth CSS animations throughout. Sidebar state restores automatically on exit.
-
-### 📥 文件操作 / File Operations
-
-**中文**
-
-- 点击按钮或快捷键 Ctrl+O 打开
-- 空白状态点击中央按钮
-- **Pro 版**：从 URL 加载（SSRF 防护 + 反爬检测 + 频率限制）
-- 一键保存（Ctrl+S），保存时自动移除预览水印
-
-**English**
+### 📥 File Operations
 
 - Open via button click or Ctrl+O shortcut
 - Click the center button in blank state
 - **Pro**: Load from URL (with SSRF protection, anti-scraping detection, rate limiting)
 - One-click save (Ctrl+S) — preview watermarks are automatically removed
 
-### 🎨 主题管理 / Theme Management
+### 🎨 Theme Management
 
-**中文** — 内置多套精美主题（Corporate Clean、Tokyo Night、Academic Paper、Catppuccin Latte、Minimal White 等），一键切换全局风格。
+5 built-in beautiful themes: DeepLogiX Dark, Nordic Light, Midnight Blue, Forest, and Monochrome. Switch the entire look with one click. Pro edition supports theme persistence; Free edition is session-only.
 
-**English** — Multiple built-in beautiful themes: Corporate Clean, Tokyo Night, Academic Paper, Catppuccin Latte, Minimal White, and more. Switch the entire look with one click.
+### 📋 Header & Footer Management
 
-### 📋 页眉页脚管理 / Header & Footer Management
+Auto-detects header/footer elements with `position: fixed/absolute`. Supports show/hide toggling, HTML content editing, and image replacement. **Note**: Elements with `sticky` / `relative` positioning are not detected.
 
-**中文** — 统一管理演示文稿的页眉页脚信息，支持编辑 HTML 源码进行精细调整。
+### 🖼️ Media Management
 
-**English** — Centrally manage header and footer content across your presentation. Supports HTML source editing for detailed customization.
+Insert and manage images (PNG/JPG/GIF/WebP/SVG/BMP/ICO), local videos (MP4/WebM/MOV/AVI/MKV/M4V/OGG, ≤ 100 MB per file), online videos (auto-detect YouTube/Bilibili/Vimeo embeds), and hyperlinks. Free edition supports 25%/50%/100% preset sizes; Pro edition supports drag-to-resize and image replacement.
 
-### 🖼️ 媒体管理 / Media Management
+### 📤 Export
 
-**中文** — 支持插入和管理图片、视频文件、在线视频等多媒体元素。
-
-**English** — Insert and manage images, video files, online videos, and other multimedia elements.
-
-### 📤 导出功能 / Export
-
-**中文** — 导出为纯净 HTML 文件，不含任何编辑器痕迹，接收方在任何浏览器中都能直接打开。
-
-**English** — Export to a clean HTML file with no editor artifacts. Recipients can open it in any browser instantly.
+- **Export HTML** (Free): One-click generates `presentation.html` + `asset/` directory. Media paths auto-rewritten as relative paths, watermarks and editor attributes removed.
+- **Export PDF** (Pro): Powered by `pdf-lib`. Each slide becomes one PDF page (1920×1080). Videos rendered as poster image placeholders.
 
 ***
 
-## 免费试用 / Free Trial
-
-### Free 版（永久免费） / Free Edition (Forever Free)
-
-**中文**
-
-| 功能       | 说明                      |
-| :------- | :---------------------- |
-| HTML 编辑器 | ✅ 完整可视化编辑               |
-| 实时预览     | ✅                       |
-| 源码编辑     | ✅                       |
-| 文件保存     | ✅                       |
-| 导出 HTML  | ✅                       |
-| 每日页数限制   | 50 页/天（足以满足日常编辑需求,0点重置） |
-| 许可证激活    | 无需任何操作，开箱即用             |
-
-Free 版已覆盖大部分日常编辑场景，下载即可使用，无需注册、无需联网、无需激活。
-
-**English**
+## Free Edition (Forever Free)
 
 | Feature             | Description                                       |
 | :------------------ | :------------------------------------------------ |
@@ -144,45 +99,31 @@ Free 版已覆盖大部分日常编辑场景，下载即可使用，无需注册
 | Source Code Editing | ✅                                                 |
 | File Save           | ✅                                                 |
 | Export HTML         | ✅                                                 |
-| Daily Page Limit    | 50 pages/day (sufficient for daily editing needs) |
+| Daily Page Limit    | **20 pages/day** (auto-reset at 0:00)              |
+| Built-in Themes     | ✅ 5 themes (session-only; default on restart)     |
+| Media Preset Sizes  | ✅ 25% / 50% / 100%                                |
 | License Activation  | None required — works out of the box              |
 
 The Free edition covers most everyday editing scenarios. Download and use immediately — no registration, no internet, no activation needed.
 
-### Pro 版（激活解锁） / Pro Edition (Activation Required)
+## Pro Edition (Activation Required)
 
-**中文**
-
-| 功能       | 说明            |
-| :------- | :------------ |
-| 无限页数     | 解除 50 页/天限制   |
-| 从 URL 加载 | 输入网址直接抓取 HTML |
-| 主题持久化    | 主题选择自动保存      |
-| 媒体拖拽     | 拖拽自定义媒体尺寸     |
-
-**English**
-
-| Feature           | Description                        |
-| :---------------- | :--------------------------------- |
-| Unlimited Pages   | Remove the 50-page/day limit       |
-| Load from URL     | Enter a URL to fetch HTML directly |
-| Theme Persistence | Auto-save theme selection          |
-| Media Drag & Drop | Drag to customize media dimensions |
+| Feature                | Description                                                |
+| :--------------------- | :--------------------------------------------------------- |
+| Unlimited Pages        | Remove the 20-page/day limit                                |
+| Load from URL          | Enter a URL to fetch HTML (with SSRF protection & rate limit) |
+| Theme Persistence      | Auto-save theme selection                                   |
+| Custom Theme Import    | Import JSON themes from `themes/` directory                |
+| Media Drag & Drop      | Drag to customize media dimensions (CSS resize)             |
+| Media Replacement      | Right-click to replace images (keep size / auto-fit)        |
+| Font Color & Highlight | Text color and highlight background                         |
+| **PDF Export**         | **One-click PDF export (powered by pdf-lib)**               |
 
 ***
 
-## 下载与安装 / Download & Install
+## Download & Install
 
 ### Windows
-
-**中文**
-
-1. 从发布页下载 `.msi` 或 `.exe` 安装包
-2. 双击运行安装程序
-3. **系统保护提示**：Windows SmartScreen 可能弹出"Windows 保护了你的电脑"警告，这是因为软件暂无数字签名证书。点击 **"更多信息"** → 选择 **"仍要运行"** 即可继续安装
-4. 安装完成后，从桌面快捷方式或开始菜单启动
-
-**English**
 
 1. Download the `.msi` or `.exe` installer from the release page
 2. Double-click to run the installer
@@ -190,19 +131,6 @@ The Free edition covers most everyday editing scenarios. Download and use immedi
 4. Launch from the desktop shortcut or Start menu after installation
 
 ### macOS
-
-**中文**
-
-1. 从发布页下载 `.dmg` 安装包
-2. 双击打开 DMG 文件，将应用图标拖入 Applications（应用程序）文件夹
-3. **首次运行提示**：macOS Gatekeeper 会阻止未签名的应用直接运行，可能提示"无法验证开发者"。此时请：
-   - 打开 **系统设置 → 隐私与安全性**
-   - 向下滚动找到安全区域，点击 **"仍要打开"** 按钮
-   - 在弹出的确认对话框中再次点击 **"仍要打开"**
-   - 或者直接在 Finder 中右键应用 → 选择 **"打开"**，然后在弹出的警告中选择 **"仍要打开"**
-4. 后续启动时不再拦截
-
-**English**
 
 1. Download the `.dmg` package from the release page
 2. Double-click to open the DMG file and drag the app icon into the Applications folder
@@ -215,18 +143,6 @@ The Free edition covers most everyday editing scenarios. Download and use immedi
 
 ### Linux
 
-**中文**
-
-1. 从发布页下载 `.AppImage` 或 `.deb` 安装包
-2. **AppImage 方式**：
-   - 赋予执行权限：`chmod +x Html-PPT-Editor*.AppImage`
-   - 双击运行或终端执行
-   - 如果系统提示"无法执行"，请右击文件 → 属性 → 权限 → 勾选"允许作为程序执行文件"
-3. **Deb 方式**：双击 `.deb` 文件或使用 `sudo dpkg -i *.deb` 安装
-4. 从应用菜单或终端启动
-
-**English**
-
 1. Download the `.AppImage` or `.deb` package from the release page
 2. **AppImage method**:
    - Set executable permission: `chmod +x Html-PPT-Editor*.AppImage`
@@ -237,17 +153,7 @@ The Free edition covers most everyday editing scenarios. Download and use immedi
 
 ***
 
-## 快速上手 / Quick Start
-
-**中文**
-
-1. 启动软件后，导入 HTML 演示文稿文件
-2. 点击侧边栏的 **"编辑"** 按钮，进入可视化编辑模式
-3. 在预览区直接选中并修改文字内容、调整样式
-4. 点击 **"保存"**（Ctrl+S），文件将自动移除预览水印
-5. 点击 **"全屏演示"** 或导出 HTML 分享给他人
-
-**English**
+## Quick Start
 
 1. Launch the software and import an HTML presentation file
 2. Click the **"Edit"** button in the sidebar to enter visual editing mode
@@ -257,38 +163,62 @@ The Free edition covers most everyday editing scenarios. Download and use immedi
 
 ***
 
-## 平台支持 / Platform Support
+## Platform Support
 
-**中文**
+| OS       | Support                                                |
+| :------- | :----------------------------------------------------- |
+| Windows  | ✅ Native installer (NSIS / MSI / portable)              |
+| macOS    | ✅ Native installer (DMG)                               |
+| Linux    | ✅ Native installer (AppImage / deb)                    |
 
-| 操作系统    |           支持情况           |
-| :------ | :----------------------: |
-| Windows |     ✅ 原生安装（NSIS 安装器）     |
-| macOS   |       ✅ 原生安装（DMG 包）      |
-| Linux   | ✅ 原生安装（AppImage / deb 包） |
+### System Requirements
 
-**English**
-
-| OS      |               Support               |
-| :------ | :---------------------------------: |
-| Windows |      ✅ Native installer (NSIS)      |
-| macOS   |       ✅ Native installer (DMG)      |
-| Linux   | ✅ Native installer (AppImage / deb) |
+| Item         | Windows                            | macOS                  | Linux                                                |
+| :----------- | :--------------------------------- | :--------------------- | :--------------------------------------------------- |
+| OS           | 10 21H2+ / 11                      | 12.0 Monterey+         | Ubuntu 20.04+                                        |
+| Runtime      | WebView2 Runtime (built-in on 21H2+) | Built-in WKWebView   | `libwebkit2gtk-4.1-dev` + `libgtk-3-dev`              |
+| Binary Size  | ~5.4 MB                            | ~10 MB                 | ~8 MB                                                |
+| Resolution   | Min 1024×720, recommended 1920×1080+ | Same                | Same                                                 |
 
 ***
 
-## 联系我们 / Contact
+## Security & License
 
-**中文**
+- **Offline License**: No internet required for activation. License stored locally in `license.dat`
+- **Encrypted Storage**: AES-256-GCM + HKDF-SHA256
+- **Signature Verification**: RSA-2048 + PKCS#1 v1.5 + SHA-256, verified at every startup
+- **Device Binding**: SHA-256 fingerprint based on system UUID / machine-id
+- **Anti-Debug**: 7 layers (IsDebuggerPresent, CheckRemoteDebuggerPresent, NtQueryInformationProcess, TracerPid, stack canary, binary self-check, time anomaly)
+- **Audit Log**: All license operations recorded in `audit.log`
+- **Time Rollback Detection**: 60-second threshold
 
-- 联系邮箱：<D-logix@outlook.com>
-- GitHub：github.com/FYLS9527
+License format: `DPLX-v2.<base64url payload>.<base64url signature>`
 
-**English**
+***
 
-- Email: <D-logix@outlook.com>
+## Keyboard Shortcuts
+
+| Shortcut                  | Action                                |
+| :------------------------ | :------------------------------------ |
+| `Ctrl + O`                | Open HTML file                        |
+| `Ctrl + S`                | Save current file                     |
+| `Ctrl + B`                | Toggle sidebar                        |
+| `Esc`                     | Collapse sidebar / Exit presentation  |
+| `Ctrl + Z` / `Ctrl + Y`   | Undo / Redo (8\~20 steps)             |
+| `←` `→` `↑` `↓`           | Navigate slides in presentation       |
+| `Space`                   | Next slide                            |
+| `Home` / `End`            | Jump to first / last slide            |
+
+> **Note**: On macOS, `Ctrl` corresponds to `Cmd`.
+
+***
+
+## Contact
+
+- Email: <D-LogiX@outlook.com>
+- Project: <https://github.com/DeepLogiX/htmleditor-v2>
 - GitHub: github.com/FYLS9527
 
 ***
 
-*Html-PPT-Editor by FYLS9527 — 让 AI 生成演示文稿变得简单、安全、专业 | Making AI-generated presentations simple, secure, and professional*
+*Html-PPT-Editor v2.0.2 by FYLS9527 — Making AI-generated presentations simple, secure, and professional*
